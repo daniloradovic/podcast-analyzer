@@ -4,6 +4,15 @@ Reference: PLAN_podcast_analyser.md
 
 ---
 
+## Default Workflow (Applies to Every Phase)
+
+- [ ] Write/update tests for the changes in the phase
+- [ ] Run test suite and confirm all tests pass
+- [ ] Commit with a clear message
+- [ ] Push to remote before starting the next phase
+
+---
+
 ## Phase 1 — Project Setup
 
 - [x] Run `laravel new podcast-analyser` and `cd podcast-analyser`
