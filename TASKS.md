@@ -16,14 +16,14 @@ Reference: PLAN_podcast_analyser.md
 
 ## Phase 2 — FeedFetcher Service
 
-- [ ] Create `app/Services/FeedFetcher.php`
-- [ ] Add `fetch(string $url): \SimpleXMLElement` method
-- [ ] Use `Http::timeout(10)->get($url)` to fetch the feed
-- [ ] Throw `\RuntimeException` if response is not successful
-- [ ] Parse body with `simplexml_load_string()`
-- [ ] Throw `\RuntimeException` if parsing fails
-- [ ] Register itunes namespace on the XML object
-- [ ] Return the `SimpleXMLElement`
+- [x] Create `app/Services/FeedFetcher.php`
+- [x] Add `fetch(string $url): \SimpleXMLElement` method
+- [x] Use `Http::timeout(10)->get($url)` to fetch the feed
+- [x] Throw `\RuntimeException` if response is not successful
+- [x] Parse body with `simplexml_load_string()`
+- [x] Throw `\RuntimeException` if parsing fails
+- [x] Register itunes namespace on the XML object
+- [x] Return the `SimpleXMLElement`
 
 ---
 
