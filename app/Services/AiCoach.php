@@ -2,7 +2,6 @@
 
 namespace App\Services;
 
-use BadMethodCallException;
 use Laravel\Ai\Ai;
 use Laravel\Ai\AnonymousAgent;
 use RuntimeException;
@@ -61,16 +60,22 @@ PROMPT);
 
     private function generateTextResponse(string $prompt): mixed
     {
-        try {
+        if ($this->canUseLegacyAiTextCall()) {
             return Ai::text($prompt);
-        } catch (BadMethodCallException) {
-            // Support current laravel/ai prompt API while keeping Phase 4 facade intent.
-            return AnonymousAgent::make(
-                'You are an expert podcast growth coach. Keep responses concise and actionable.',
-                [],
-                [],
-            )->prompt($prompt);
         }
+
+        return AnonymousAgent::make(
+            'You are an expert podcast growth coach. Keep responses concise and actionable.',
+            [],
+            [],
+        )->prompt($prompt);
+    }
+
+    private function canUseLegacyAiTextCall(): bool
+    {
+        $root = Ai::getFacadeRoot();
+
+        return is_object($root) && method_exists($root, 'text');
     }
 
     private function extractResponseText(mixed $response): string

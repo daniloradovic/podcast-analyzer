@@ -3,7 +3,7 @@
 namespace Tests\Feature;
 
 use App\Services\AiCoach;
-use Laravel\Ai\Ai;
+use Laravel\Ai\AnonymousAgent;
 use RuntimeException;
 use Tests\TestCase;
 
@@ -19,9 +19,8 @@ class AiCoachTest extends TestCase
             ['name' => 'Artwork Present', 'status' => 'fail', 'message' => 'Missing'],
         ];
 
-        Ai::shouldReceive('text')
-            ->once()
-            ->withArgs(function (string $prompt): bool {
+        AnonymousAgent::fake([
+            function (string $prompt): string {
                 $this->assertStringContainsString('Podcast title:', $prompt);
                 $this->assertStringContainsString('My Podcast', $prompt);
                 $this->assertStringContainsString('Podcast description:', $prompt);
@@ -30,15 +29,9 @@ class AiCoachTest extends TestCase
                 $this->assertStringContainsString('[FAIL] Artwork Present: Missing', $prompt);
                 $this->assertStringNotContainsString('[PASS] Title Length: Good', $prompt);
 
-                return true;
-            })
-            ->andReturn(new class
-            {
-                public function text(): string
-                {
-                    return 'AI coaching output';
-                }
-            });
+                return 'AI coaching output';
+            },
+        ]);
 
         $result = $coach->analyse('My Podcast', 'A show about startup lessons.', $checks);
 
@@ -49,9 +42,11 @@ class AiCoachTest extends TestCase
     {
         $coach = new AiCoach();
 
-        Ai::shouldReceive('text')
-            ->once()
-            ->andThrow(new RuntimeException('Provider timeout'));
+        AnonymousAgent::fake([
+            function (): never {
+                throw new RuntimeException('Provider timeout');
+            },
+        ]);
 
         $this->expectException(RuntimeException::class);
         $this->expectExceptionMessage('Failed to generate AI coaching summary: Provider timeout');

@@ -83,12 +83,12 @@ Reference: PLAN_podcast_analyser.md
 
 ## Phase 6 — Test
 
-- [ ] Run: `php artisan podcast:analyse https://feeds.transistor.fm/build-your-saas`
-- [ ] Confirm score displays with correct colour
-- [ ] Confirm all 5 checks display correctly
-- [ ] Confirm AI Coach generates a real personalised summary
-- [ ] Run on a second feed: `php artisan podcast:analyse https://feeds.transistor.fm/laracasts-snippet`
-- [ ] Fix any errors or edge cases
+- [x] Run: `php artisan podcast:analyse https://feeds.transistor.fm/build-your-saas`
+- [x] Confirm score displays with correct colour
+- [x] Confirm all 5 checks display correctly
+- [x] Confirm AI Coach generates a real personalised summary
+- [x] Run on a second feed: `php artisan podcast:analyse https://feeds.simplecast.com/sY509q85`
+- [x] Fix any errors or edge cases
 
 ---
 
