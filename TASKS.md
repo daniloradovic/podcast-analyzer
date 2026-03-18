@@ -38,15 +38,15 @@ Reference: PLAN_podcast_analyser.md
 
 ## Phase 3 — FeedChecker Service
 
-- [ ] Create `app/Services/FeedChecker.php`
-- [ ] Add `check(\SimpleXMLElement $xml): array` method
-- [ ] Implement `checkTitleLength()` — pass 30–60 chars, warn otherwise, fail if empty
-- [ ] Implement `checkDescription()` — fail if empty, warn if < 50 chars, pass otherwise
-- [ ] Implement `checkArtworkPresent()` — use XPath to find `itunes:image`, fail if missing
-- [ ] Implement `checkArtworkFormat()` — warn if URL doesn't end in `.jpg` or `.png`
-- [ ] Implement `checkEpisodeCount()` — fail if 0 episodes, pass with count otherwise
-- [ ] Each method returns `['name' => '...', 'status' => 'pass|warn|fail', 'message' => '...']`
-- [ ] `check()` returns array of all 5 results
+- [x] Create `app/Services/FeedChecker.php`
+- [x] Add `check(\SimpleXMLElement $xml): array` method
+- [x] Implement `checkTitleLength()` — pass 30–60 chars, warn otherwise, fail if empty
+- [x] Implement `checkDescription()` — fail if empty, warn if < 50 chars, pass otherwise
+- [x] Implement `checkArtworkPresent()` — use XPath to find `itunes:image`, fail if missing
+- [x] Implement `checkArtworkFormat()` — warn if URL doesn't end in `.jpg` or `.png`
+- [x] Implement `checkEpisodeCount()` — fail if 0 episodes, pass with count otherwise
+- [x] Each method returns `['name' => '...', 'status' => 'pass|warn|fail', 'message' => '...']`
+- [x] `check()` returns array of all 5 results
 
 ---
 
