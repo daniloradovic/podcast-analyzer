@@ -64,20 +64,20 @@ Reference: PLAN_podcast_analyser.md
 
 ## Phase 5 — Artisan Command
 
-- [ ] Run `php artisan make:command AnalysePodcast`
-- [ ] Set signature: `podcast:analyse {feed_url : The RSS feed URL to analyse}`
-- [ ] Set description: `Analyse a podcast RSS feed and get an AI coaching summary`
-- [ ] Inject `FeedFetcher`, `FeedChecker`, `AiCoach` via `handle()` method parameters
-- [ ] Call `$fetcher->fetch($url)` — catch exception and show error, return `FAILURE`
-- [ ] Extract `$title` and `$description` from XML
-- [ ] Call `$checker->check($xml)` to get results
-- [ ] Calculate score: start at 100, subtract 15 per fail, 5 per warn, min 0
-- [ ] Display score with colour: green ≥ 80, yellow ≥ 50, red < 50
-- [ ] Display pass/warn/fail counts on one line
-- [ ] Loop through checks and display each with ✓ / ⚠ / ✗ icon and colour
-- [ ] Call `$coach->analyse()` and display the result
-- [ ] Add footer line linking to podcheck.dev
-- [ ] Return `self::SUCCESS`
+- [x] Run `php artisan make:command AnalysePodcast`
+- [x] Set signature: `podcast:analyse {feed_url : The RSS feed URL to analyse}`
+- [x] Set description: `Analyse a podcast RSS feed and get an AI coaching summary`
+- [x] Inject `FeedFetcher`, `FeedChecker`, `AiCoach` via `handle()` method parameters
+- [x] Call `$fetcher->fetch($url)` — catch exception and show error, return `FAILURE`
+- [x] Extract `$title` and `$description` from XML
+- [x] Call `$checker->check($xml)` to get results
+- [x] Calculate score: start at 100, subtract 15 per fail, 5 per warn, min 0
+- [x] Display score with colour: green ≥ 80, yellow ≥ 50, red < 50
+- [x] Display pass/warn/fail counts on one line
+- [x] Loop through checks and display each with ✓ / ⚠ / ✗ icon and colour
+- [x] Call `$coach->analyse()` and display the result
+- [x] Add footer line linking to podcheck.dev
+- [x] Return `self::SUCCESS`
 
 ---
 
