@@ -52,13 +52,13 @@ Reference: PLAN_podcast_analyser.md
 
 ## Phase 4 — AiCoach Service
 
-- [ ] Create `app/Services/AiCoach.php`
-- [ ] Add `analyse(string $title, string $description, array $checks): string` method
-- [ ] Filter checks to only non-passing ones
-- [ ] Build prompt string — include podcast title, description, and failed/warned checks
-- [ ] Call `Ai::text($prompt)` from `Illuminate\Support\Facades\Ai`
-- [ ] Return `$response->text()`
-- [ ] Wrap in try/catch and throw descriptive exception on failure
+- [x] Create `app/Services/AiCoach.php`
+- [x] Add `analyse(string $title, string $description, array $checks): string` method
+- [x] Filter checks to only non-passing ones
+- [x] Build prompt string — include podcast title, description, and failed/warned checks
+- [x] Call `Ai::text($prompt)` from `Illuminate\Support\Facades\Ai`
+- [x] Return `$response->text()`
+- [x] Wrap in try/catch and throw descriptive exception on failure
 
 ---
 
