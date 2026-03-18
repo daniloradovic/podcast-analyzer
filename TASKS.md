@@ -94,15 +94,15 @@ Reference: PLAN_podcast_analyser.md
 
 ## Phase 7 — GitHub
 
-- [ ] `git init` (if not already)
-- [ ] Create a clean `README.md` with:
+- [x] `git init` (if not already)
+- [x] Create a clean `README.md` with:
   - One-liner description
   - Install steps
   - Example command and output
   - "Built with Laravel 13 + Laravel AI SDK" badge line
   - Link to podcheck.dev for full 68-check report
 - [ ] `git add . && git commit -m "feat: initial podcast analyser command"`
-- [ ] Push to new public GitHub repo: `podcast-analyser`
+- [x] Push to new public GitHub repo: `podcast-analyser`
 
 ---
 
